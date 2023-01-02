@@ -1,0 +1,18 @@
+.navStyle{
+    position: fixed;
+    top: 58%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: fadeIn 1s;
+    background-color: aliceblue;
+    box-shadow: rgba(0, 0, 0, 0.2) 100px 80px 80px 80px;
+}
+
+.passwordstyle{
+    position: absolute;
+    margin-top: -350px;
+    margin-left: -50px;
+    animation: fadeIn 1s;
+    background-color: aliceblue;
+    box-shadow: rgba(0, 0, 0, 0.2) 100px 80px 80px 80px;
+}

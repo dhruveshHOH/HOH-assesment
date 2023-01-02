@@ -1,0 +1,132 @@
+<nav style="margin-top: 70px;" class="sidebar sidebar-offcanvas" id="sidebar">
+    <ul style="margin-top: 70px;" class="nav">
+      <li class="nav-item nav-profile">
+        <div class="nav-link">
+          <div class="profile-image">
+            <img *ngIf="data === 'Admin'" src="../../assets//images/faces/face5.jpg" alt="image">
+          </div>
+          <div class="profile-name">
+            <p class="name">
+              Welcome {{data.FirstName}}
+              
+            </p>
+            <p *ngIf="data === 'Admin'" class="designation">
+              Role:{{data.Role}}
+            </p>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['']">
+          <i class="fa fa-home menu-icon"></i>
+          <span class="menu-title">Dashboard</span>
+        </a>
+      </li>
+      <!-- <li *ngIf="data === 'Admin'" class="nav-item">
+        <a class="nav-link" [routerLink]="['login']">
+          <i class="fa fa-puzzle-piece menu-icon"></i>
+          <span class="menu-title">login</span>
+        </a>
+      </li> -->
+      <li *ngIf="data.Role === 'Admin'" class="nav-item">
+        <a class="nav-link" data-toggle="collapse" [routerLink]="['upload']" aria-expanded="false" aria-controls="page-layouts">
+          <i class="fab fa-trello menu-icon"></i>
+          <span class="menu-title">Upload Area And City</span>
+          <!-- <i class="menu-arrow"></i> -->
+        </a>
+        <!-- <div class="collapse" id="page-layouts">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="pages/layout/boxed-layout.html">Boxed</a></li>
+            <li class="nav-item"> <a class="nav-link" href="pages/layout/rtl-layout.html">RTL</a></li>
+            <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="pages/layout/horizontal-menu.html">Horizontal Menu</a></li>
+          </ul>
+        </div> -->
+      </li>
+      <li *ngIf="data.Role === 'Admin'" class="nav-item">
+        <a class="nav-link" data-toggle="collapse" [routerLink]="['upload_data']" aria-expanded="false" aria-controls="page-layouts">
+          <i class="fab fa-trello menu-icon"></i>
+          <span class="menu-title">Upload Data</span>
+          
+        </a>
+        
+      </li>
+
+      
+
+      <li *ngIf="data.Role === 'Admin'" class="nav-item d-none d-lg-block">
+        <a class="nav-link" data-toggle="collapse" href="#sidebar-layouts" aria-expanded="false" aria-controls="sidebar-layouts">
+          <i class="fas fa-columns menu-icon"></i>
+          <span class="menu-title">Manage Users</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="sidebar-layouts">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" [routerLink]="['vendermanager']" >Vender Manager</a></li>
+            <li class="nav-item"> <a class="nav-link" [routerLink]="['venderplanner']">Vender Planner</a></li>
+            <li class="nav-item"> <a class="nav-link" [routerLink]="['venderfieldworker']">Field Worker</a></li>
+            <li class="nav-item"> <a class="nav-link" [routerLink]="['jes']">JE's</a></li>
+            <li class="nav-item"> <a class="nav-link" [routerLink]="['origin']">Origin</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li *ngIf="data.Role==='Admin' || data.Role==='Vplanner' || data.Role==='VManeger'" class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#ui-advanced" aria-expanded="false" aria-controls="ui-advanced">
+          <i class="fas fa-clipboard-list menu-icon"></i>
+          <span class="menu-title">Manage CI</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="ui-advanced">
+          <ul class="nav flex-column sub-menu">
+            
+            <li class="nav-item"> <a class="nav-link" [routerLink]="['alltasks']">All Taskes</a></li>
+            <li class="nav-item"> <a class="nav-link" [routerLink]="['assigntask']">Assign Tasks</a></li>
+            <li class="nav-item"> <a class="nav-link" [routerLink]="['assignedtask']">Assigned Tasks</a></li>
+            <li *ngIf="this.data.Role==='Vplanner'" class="nav-item"> <a class="nav-link" [routerLink]="['pendingvp']">Pending Vp Verifiction</a></li>
+            <li *ngIf="this.data.Role==='Vplanner'" class="nav-item"> <a class="nav-link" [routerLink]="['rejectedvp']">Rejected Vp</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li *ngIf="data.Role==='jes'" class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#ui-advanced" aria-expanded="false" aria-controls="ui-advanced">
+          <i class="fas fa-clipboard-list menu-icon"></i>
+          <span class="menu-title">Manage Tasks</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="ui-advanced">
+          <ul class="nav flex-column sub-menu">
+            
+            <li class="nav-item"> <a class="nav-link" [routerLink]="['alltasks']">All Taskes</a></li>
+            <li class="nav-item"> <a class="nav-link" [routerLink]="['approvereject']">Approve/Reject Tasks</a></li>
+            <li class="nav-item"> <a class="nav-link" [routerLink]="['approvetask']">Approved Tasks</a></li>
+            <li class="nav-item"> <a class="nav-link" [routerLink]="['rejectedtask']">Rejected Tasks</a></li>
+
+
+          </ul>
+        </div>
+      </li>
+
+      <li *ngIf="data.Role==='FieldWorker'" class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#ui-advanced" aria-expanded="false" aria-controls="ui-advanced">
+          <i class="fas fa-clipboard-list menu-icon"></i>
+          <span class="menu-title">Manage CI</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="ui-advanced">
+          <ul class="nav flex-column sub-menu">
+            
+            <li class="nav-item"> <a class="nav-link" [routerLink]="['assigntask']">Assign</a></li>
+            <li class="nav-item"> <a class="nav-link" [routerLink]="['assignedtask']">Assigned Tasks</a></li>
+            <li class="nav-item"> <a class="nav-link" [routerLink]="['completetask']">Complete Tasks</a></li>
+            <li *ngIf="this.data.Role==='Vplanner'" class="nav-item"> <a class="nav-link" [routerLink]="['pendingvp']">Pending Vp Verifiction</a></li>
+            
+
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  
+ 

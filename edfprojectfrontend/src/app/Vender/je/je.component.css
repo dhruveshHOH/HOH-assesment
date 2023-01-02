@@ -1,0 +1,8 @@
+.navStyle{
+    position: fixed;
+    top: 17%;
+    left: 22%;
+    animation: fadeIn 1s;
+    background-color: aliceblue;
+    box-shadow: rgba(0, 0, 0, 0.2) 100px 80px 80px 80px;
+}

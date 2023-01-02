@@ -1,0 +1,329 @@
+<div class="page-header">
+    <h3 class="page-title">
+      Vender Field
+    </h3>
+    <div style="float: right; margin-left: 70%;" class="card-body">
+      <div class="row">
+        <div class="col-md-4 col-sm-6 d-flex justify-content-center border-right">
+          <div class="wrapper text-center">
+            
+            <button class="btn btn-outline-primary" (click)="open()">Add</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Vender Field List</h4>
+        
+        <div class="col-12 grid-margin">
+          <div class="card">
+            <div class="card-body">
+             
+             
+               
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label">City</label>
+                      <div class="col-sm-9">
+                        <select #dcity (change)="getVmanagerByCity(dcity.value)" (change)="getarea(dcity.value)"  (change)="this.filterInput.City=dcity.value"class="form-control">
+                          <option>Select</option>
+                          <option *ngFor="let i of city" >{{i}}</option>
+                          
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label">Area</label>
+                      <div class="col-sm-9">
+                        <select #darea (change)="this.filterInput.Area=darea.value" class="form-control">
+                          <option>Select</option>
+                          <option *ngFor="let i of area" >{{i}}</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label">Vender Manager</label>
+                      <div class="col-sm-9">
+                        <select #vmanage (change)="getVplannerByManager(vmanage.value)" (change)="this.filterInput.VManage=vmanage.value" class="form-control">
+                          <option>Select</option>
+                          <option *ngFor="let i of vManager" >{{i.FirstName}}</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label">Vender Planner</label>
+                      <div class="col-sm-9">
+                        <select #dvplan  (change)="this.filterInput.VPlanner=dvplan.value" class="form-control">
+                          <option>Select</option>
+                          <option *ngFor="let i of vplanner">{{i}}</option>
+                        </select>
+                        
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group row">
+                      <label class="col-sm-3 col-form-label">Name</label>
+                      <div class="col-sm-9">
+                        <input #dfname (change)="this.filterInput.FirstName=dfname.value" type="text" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+
+                  <button (click)="filterDropdown()" style="margin-left: 200px; height: 50px;" type="submit" class="btn btn-primary mb-2">Submit</button>
+                </div>
+     
+              
+            </div>
+          </div>
+        </div>
+        
+        
+
+
+
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                
+                <th>
+                  First name
+                </th>
+                <th>
+                  Mobile
+                </th>
+                <th>
+                  City
+                </th>
+                <th>
+                  Area
+                </th>
+                <th>
+                  Vender Manager
+                </th>
+                <th>
+                  Vender Planner
+                </th>
+                <th>
+                  Change Password
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let i of fieldWorker">
+                <td>
+                  {{i.FirstName}}
+                </td>
+                <td>
+                  {{i.Mobile}}
+                </td>
+                <td>
+                  {{i.City}}
+                </td>
+                <td>
+                  {{i.Area}}
+                </td>
+                <td>
+                  {{i.VenderManager}}
+                </td>
+                <td>
+                  {{i.VenderPlanner}}
+                </td>
+
+                <td>
+                  <button (click)="passstatus(i.id)" _ngcontent-dnb-c22="" type="button" class="btn btn-info btn-rounded btn-fw" >Change</button>
+                </td>
+              </tr>
+              
+              
+              
+              
+              
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div [ngStyle]="{ 'display': status ? 'block' : 'none' }" [className]="['navStyle']" class="col-12 grid-margin">
+    <div class="card">
+      <div class="card-body">
+        
+        <div class="page-header">
+            <h3 class="page-title">
+                Add Field Worker 
+            </h3>
+            <button (click)="open()" _ngcontent-nfx-c20="" class="btn btn-outline-primary">Back</button>
+          </div>
+        <form class="form-sample">
+         
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Name</label>
+                <div class="col-sm-9">
+                  <input #fname (change)="this.InputData.FirstName=fname.value" type="text" class="form-control">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Mobile</label>
+                <div class="col-sm-9">
+                  <input #Mobile (change)="this.InputData.Mobile=Mobile.value" type="text" class="form-control">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">City</label>
+                <div class="col-sm-9">
+                  <select #test1 (change)="getVmanagerByCity(test1.value)" (change)="getarea(test1.value)" (change)="this.InputData.City=test1.value" class="form-control">
+                    <option>Select</option>
+                    <option *ngFor="let i of city" >{{i}}</option>
+                    
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">Area</label>
+                  <div class="col-sm-9">
+                    <select #test2 (change)="this.InputData.Area=test2.value" class="form-control">
+                      <option>Select</option>
+                      <option *ngFor="let i of area">{{i}}</option>
+                      
+                    </select>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Vender Manager</label>
+                <div class="col-sm-9">
+                  <select #Vm (change)="getVplannerByManager(Vm.value)" (change)="this.InputData.VenderManager=Vm.value" class="form-control">
+                    <option>Select</option>
+                    <option *ngFor="let i of vManager">{{i.FirstName}}</option>
+                    
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">Vender Planner</label>
+                  <div class="col-sm-9">
+                    <select #Vp (change)="this.InputData.VenderPlanner=Vp.value" class="form-control">
+                      <option>Select</option>
+                      <option *ngFor="let i of vplanner">{{i}}</option>
+                      
+                    </select>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <hr>
+          <div class="row">
+            
+            <div class="col-md-6">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label">Username</label>
+                  <div class="col-sm-9">
+                    <input #user (change)="this.InputData.Username=user.value" type="text" class="form-control">
+                  </div>
+                </div>
+              </div>
+          </div>
+          
+          <div style="float: left;" class="col-md-6">
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Password</label>
+              <div class="col-sm-9">
+                <input #pass (change)="this.InputData.Password=pass.value" type="password" class="form-control">
+              </div>
+            </div>
+          </div>
+          <div style="float: right;" class="col-md-6">
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Confirm Password</label>
+              <div class="col-sm-9">
+                <input #cpass (change)="this.InputData.confirmPassword=cpass.value" type="password" class="form-control">
+              </div>
+            </div>
+          </div>
+          
+          
+          <button (click)="submit()" style="margin-left:40%" type="button" class="btn btn-info btn-rounded btn-fw">Save</button>
+        </form>
+        
+      </div>
+    </div>
+  </div>
+  <div [ngStyle]="{ 'display': passwordStatus ? 'block' : 'none' }" [className]="['passwordstyle']" class="col-12 grid-margin">
+    <div class="card">
+      <div class="card-body">
+        
+        <div class="page-header">
+            <h3 class="page-title">
+                Change Password
+            </h3>
+            <button (click)="passstatus(null)" _ngcontent-nfx-c20="" class="btn btn-outline-primary">Back</button>
+        </div>
+        
+         
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">New Password</label>
+                <div class="col-sm-9">
+                  <input #name (change)="this.passwordchange.Password=name.value" type="password" class="form-control">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Confirm Password</label>
+                <div class="col-sm-9">
+                  <input #id (change)="this.passwordchange.confirmPassword=id.value" type="password" class="form-control">
+                </div>
+              </div>
+            </div>
+          </div>
+          
+         
+          <hr>
+          
+          
+          
+          
+          
+          
+          <button (click)="changePass()" style="margin-left:40%" type="button" class="btn btn-info btn-rounded btn-fw">Save</button>
+        
+        
+      </div>
+  </div>
+</div>

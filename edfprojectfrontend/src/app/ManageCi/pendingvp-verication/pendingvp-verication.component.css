@@ -1,0 +1,16 @@
+.drp{
+    margin-bottom: 50px;
+    margin-left: 5px;
+    height: 30px;
+    width: 100px;
+    float: left;
+}
+.dialogContainer{
+    position: absolute;
+    width:700px;
+    height:auto;
+    animation: fadeIn 1s;
+    background-color: aliceblue;
+    box-shadow: rgba(0, 0, 0, 0.2) 100px 80px 80px 80px;
+
+}

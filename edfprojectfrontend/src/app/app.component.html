@@ -1,0 +1,10 @@
+<span *ngIf="Role==='Admin' || Role==='' || Role==='VManeger' || Role==='Vplanner' || Role==='jes' || Role==='FieldWorker'">
+<app-navbar></app-navbar>
+<app-maincontainer></app-maincontainer>
+<app-sidebar></app-sidebar>
+</span>
+<span *ngIf="Role===null">
+
+    <app-login-page></app-login-page>
+
+</span>

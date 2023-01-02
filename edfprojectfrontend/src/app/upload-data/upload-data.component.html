@@ -1,0 +1,7 @@
+<div class="row">
+    <input #file (change)="this.excelFiles=$event" style="margin-left: 20px;" type="file" >
+
+    
+</div>
+<button type="button" (click)="uploadData()" style="margin: 20px;" class="btn btn-info btn-fw">Submit Fresh Data</button>
+<button type="button" (click)="uploadDuplicate()" class="btn btn-info btn-fw">Submit With Duplicate Data</button>
